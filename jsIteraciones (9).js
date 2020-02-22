@@ -11,6 +11,16 @@ function mostrar()
 	{
 		numero = prompt("Ingrese un numero");
 		numero = parseInt(numero); 
+		
+		
+     while ( isNaN(numero) || (numero < 1 || numero > 10))
+   {
+      numero= prompt ("Reingrese un numero");
+      numero= parseInt(numero); 
+
+       
+  }
+	
 
 
   if (flag==true)
@@ -33,7 +43,7 @@ function mostrar()
   flag=false;
   
 
-respuesta= confirm("Desea ingresar otro numero");
+respuesta= confirm("Desea ingresar otro numero");//Se puede usar prompt por SI/NO;
 contador++	
 }
  document.getElementById('maximo').value = maximo;
