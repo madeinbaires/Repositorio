@@ -1,44 +1,67 @@
 function mostrar()
-{
-
-
-var respuesta;
-   var numero;
-   var esPrimeraIteracion=true;
-   var maximo;
-   var minimo;
-
-		
-do
-{
-	numero=prompt ('Ingrese un numero');
-	numero=parseInt(numero);
+{   
+	var contador = 0;
+	var flag=true ;
+	var numero;
+	var maximo;
+	var minimo;
+	var respuesta=true;
 	
-   while(isNaN(numero))
+	while(respuesta==true)
+	{
+		numero = prompt("Ingrese un numero");
+		numero = parseInt(numero); 
+		
+		
+     while ( isNaN(numero) || (numero < 1 || numero > 10))
    {
-	   numero=prompt('Error,ingrese un numero');
-	   numero=parseInt(numero);
-   }
+      numero= prompt ("Reingrese un numero");
+      numero= parseInt(numero); 
 
-   if (esPrimeraIteracion===true)
-{
-		   maximo=numero;
-		   minimo=numero;
-		   esPrimeraIteracion=false;
+       
+  }
+	
+
+
+  if (flag==true)
+  {
+	  maximo=numero;
+ 	  minimo=numero;
+        
+  }
+  else{
+      if (flag ==true || numero >maximo){
+			maximo = numero;
+
+	  }
+	  else if (flag ==true || numero < minimo){
+
+           minimo=numero;		
+	  }
+
+  }
+  flag=false;
+  
+
+respuesta= confirm("Desea ingresar otro numero");//Se puede usar prompt por SI/NO;
+contador++	
 }
-	else if (numero>maximo)
-	{
+ document.getElementById('maximo').value = maximo;
+ document.getElementById('minimo').value = minimo;
 
-		     maximo=numero;
-	}
-	else if (numero<minimo)
-	{
-		minimo=numero
-	}
-	   respuesta=confirm('Desea continuar?');
-}while(respuesta);
+ }
 
-	   document.getElementById("maximo").value=maximo;
-	   document.getElementById("minimo").value=minimo;
-}
+
+
+   
+		
+
+
+   
+	
+   
+
+
+
+
 
